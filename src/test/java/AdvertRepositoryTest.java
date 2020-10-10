@@ -34,12 +34,12 @@ public class AdvertRepositoryTest {
         return objects;
     }
 
-    @Test(priority = 1)
+    @Test
     void testGetAllAdverts() throws SQLException {
         Assert.assertEquals(AdvertRepository.getAllAdvertises().size(), getAdvertData().length);
     }
 
-    @Test(priority = 2)
+    @Test
     void testAddNewAdvert() throws SQLException {
         User user = new User("Vasya", "Tkachuk", "gfhdj@akfjdh", "11111111");
         UserRepository.addUser(user);
@@ -49,7 +49,7 @@ public class AdvertRepositoryTest {
         Assert.assertEquals(CreationDeletion.getCountAdverts(), count+1);
     }
 
-    @Test (priority = 2)
+    @Test
     void testDeleteAdvert()throws SQLException{
         Advert advert = new Advert(2,"Help", "My dog is missing", User.getUserById(4));
         int count = CreationDeletion.getCountAdverts();
@@ -63,7 +63,7 @@ public class AdvertRepositoryTest {
              return new Object[][]{{advert}};
     }
 
-    @Test(dataProvider = "update", priority = 2)
+    @Test(dataProvider = "update")
     void testUpdateAdvert(Advert advert) throws SQLException {
         Advert advert1 = new Advert(1, "All good", "Cat is already at home");
         String title = advert.getAdvertTitle();

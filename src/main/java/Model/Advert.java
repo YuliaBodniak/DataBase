@@ -138,15 +138,14 @@ public class Advert {
         return advertId;
     }
 
-    //    public static boolean isAdvertPresent(Advert advert, User user) throws SQLException {
-//        String sql = "SELECT * FROM Adverts WHERE advert_id = " + selectAdvertId(advert, user) + "AND advert_title = " + advert.getAdvertTitle()+ "AND description = '" + advert.getDescription() + "'AND id = '" + user.getId()+ "'";
-//        Connection connection = PostgresConnection.getConnection();
-//        Statement statement = connection.createStatement();
-//        ResultSet rs = statement.executeQuery(sql);
-//        while (rs.next()) {
-//            return true;
-//        }
-//        return false;
-//    }
-//
+        public static boolean isAdvertPresent(Advert advert, User user) throws SQLException {
+        String sql = "SELECT * FROM Adverts WHERE advert_id = " + selectAdvertId(advert, user) + "AND advert_title = " + advert.getAdvertTitle()+ "AND description = '" + advert.getDescription() + "'AND id = '" + user.getId()+ "'";
+        Connection connection = PostgresConnection.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        while (rs.next()) {
+            return true;
+        }
+        return false;
+    }
 }

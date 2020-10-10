@@ -30,7 +30,7 @@ public class UserRepositoryTest {
         return objects;
     }
 
-    @Test(priority = 1)
+    @Test
     void testGetAllUsers() throws SQLException {
         getAllUsers();
         Assert.assertEquals(getAllUsers().size(), getUserData().length);
@@ -42,7 +42,7 @@ public class UserRepositoryTest {
         return new Object[][]{{user}};
     }
 
-    @Test(dataProvider = "add", priority = 2)
+    @Test(dataProvider = "add")
     void testAddUser(User user) throws SQLException {
         int count = CreationDeletion.getCount();
         UserRepository.addUser(user);
@@ -55,7 +55,7 @@ public class UserRepositoryTest {
         return new Object[][]{{user}};
     }
 
-    @Test(dataProvider = "update", priority = 2)
+    @Test(dataProvider = "update")
     void testUpdateUser(User user) throws SQLException {
         User user1 = new User(2,"Dasha", "Ivanova", "ivanova@com.ua", "0505263748");
         UserRepository.updateUser(user1);
@@ -67,7 +67,7 @@ public class UserRepositoryTest {
         User user = User.getUserById(1);
         return new Object[][]{{user}};
     }
-    @Test(dataProvider = "delete", priority = 2)
+    @Test(dataProvider = "delete")
     void testDeleteUser(User user) throws SQLException {
         int count = CreationDeletion.getCount();
         UserRepository.deleteUser(user);
